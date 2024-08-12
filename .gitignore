@@ -1,0 +1,13 @@
+.vscode
+node_modules/
+/test-results/
+/blob-report/
+
+__pycache__
+app.egg-info
+*.pyc
+.mypy_cache
+.coverage
+htmlcov
+.cache
+.venv
