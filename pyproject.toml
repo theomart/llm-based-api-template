@@ -6,7 +6,7 @@ authors = ["Admin <admin@example.com>"]
 
 [tool.poetry.dependencies]
 python = "^3.10"
-uvicorn = { extras = ["standard"], version = "^0.24.0.post1" }
+uvicorn = { extras = ["standard"], version = "^0.30.6" }
 fastapi = "^0.109.1"
 pydantic = ">2.0"
 gunicorn = "^22.0.0"
