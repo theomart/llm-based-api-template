@@ -1,0 +1,11 @@
+services:
+  api:
+    build: .
+    ports:
+      - "8000:8000"
+    volumes:
+      - .:/app
+    command: uvicorn app.main:app --host 0.0.0.0 --port 8000 --reload
+    environment:
+      # The command will fail if the variable is not set
+      - OPENAI_API_KEY=${OPENAI_API_KEY?OpenAI API key is required}

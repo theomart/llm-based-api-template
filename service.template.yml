@@ -1,0 +1,24 @@
+# Values in `${}` are replaced by the values in the deploy.yml workflow
+apiVersion: serving.knative.dev/v1
+kind: Service
+metadata:
+  name: ${SERVICE} # The name of the service
+spec:
+  template:
+    metadata:
+      annotations:
+        autoscaling.knative.dev/maxScale: "2" # The maximum number of replicas the service can scale up to
+    spec:
+      containerConcurrency: 80 # The number of concurrent requests the service can handle
+      containers:
+        - image: ${IMAGE} # The image to use for the container
+          resources:
+            limits:
+              cpu: "1"
+              memory: "512Mi"
+            requests:
+              cpu: "500m"
+              memory: "256Mi"
+  traffic:
+    - percent: 100 # 100% of the traffic is routed to the latest revision
+      latestRevision: true # Route all traffic to the latest revision
